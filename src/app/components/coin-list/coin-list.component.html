@@ -12,7 +12,24 @@
         onmouseout="start()"
         loop="infinite"
       >
-        <div class="row"></div>
+        <div class="coins-wrapper">
+          <ng-container *ngFor="let coin of bannerData">
+            <div class="coin-card">
+              <img [src]="coin.image" width="100" class="img-fluid" alt="" />
+              <div class="coin-body">
+                <h5 class="coin-title">
+                  {{ coin.symbol | uppercase
+                  }}<span class="text-danger"
+                    >{{ coin.market_cap_change_percentage_24h }}%</span
+                  >
+                </h5>
+                <p class="coin-currency">
+                  {{ coin.current_price | currency : "EUR" }}
+                </p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
       </marquee>
     </div>
   </div>

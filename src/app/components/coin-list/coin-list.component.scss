@@ -28,6 +28,34 @@
     background-image: url('../../../assets/banner2.jpg');
     height: 400px;
     width: 100%;
+
+    .coins-wrapper{
+        display: flex;
+        align-items: baseline;
+
+        .coin-card {
+            border: none;
+            background: transparent;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+    
+            img {
+                height: 70px;
+                width: 70px;
+                margin: 0 auto 16px;
+            }
+    
+            h5 {
+                font-weight: 500;
+                font-size: 0.75rem;
+            }
+    
+            p {
+                font-weight: 700;
+            }
+        }
+    }
 }
 
 .sub-header {
