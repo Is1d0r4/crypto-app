@@ -1,3 +1,6 @@
 .example-spacer {
     flex: 1 1 auto;
 }
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #212121 !important;
+}

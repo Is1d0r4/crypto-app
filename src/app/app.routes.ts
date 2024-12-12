@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { CoinListComponent } from './components/coin-list/coin-list.component';
 import { CoinDetailComponent } from './components/coin-detail/coin-detail.component';
+import { CoinListComponent } from './components/coin-list/coin-list.component';
 
 export const routes: Routes = [
   {
@@ -13,7 +13,7 @@ export const routes: Routes = [
     component: CoinListComponent,
   },
   {
-    path: 'coin-detail',
+    path: 'coin-detail/:id',
     component: CoinDetailComponent,
   },
 ];

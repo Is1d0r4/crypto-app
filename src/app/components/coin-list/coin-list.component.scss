@@ -56,10 +56,15 @@
             }
         }
     }
+
 }
 
 .sub-header {
     height: 50%;
     display: flex;
     align-items: center;
+}
+
+.mat-sort-header.mat-mdc-header-cell.mdc-data-table__header-cell  {
+     background-color: #009688;
 }
