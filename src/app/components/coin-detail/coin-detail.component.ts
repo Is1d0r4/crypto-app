@@ -76,14 +76,14 @@ export class CoinDetailComponent implements OnInit {
             ...res.market_data,
             current_price: {
               ...res.market_data.current_price,
-              inr:
+              eur:
                 this.currency === 'USD'
                   ? res.market_data.current_price.usd
                   : res.market_data.current_price.eur,
             },
             market_cap: {
               ...res.market_data.market_cap,
-              inr:
+              eur:
                 this.currency === 'USD'
                   ? res.market_data.market_cap.usd
                   : res.market_data.market_cap.eur,
