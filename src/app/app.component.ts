@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,9 +30,13 @@ import { CurrencyService } from './service/currency.service';
 export class AppComponent {
   selectedCurrency: string = 'EUR';
 
-  constructor(public service: CurrencyService) {}
+  constructor(private service: CurrencyService, private router: Router) {}
 
   sendCurrency(event: string) {
     this.service.setCurrency(event);
+  }
+
+  goToHome() {
+    this.router.navigate(['coin-list']);
   }
 }

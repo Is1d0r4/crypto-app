@@ -1,15 +1,9 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { CurrencyService } from '../../service/currency.service';
 
@@ -50,13 +44,13 @@ export class CoinListComponent implements OnInit {
   }
 
   getBannerData() {
-    this.api.getTrendingCurrency(this.currency).subscribe((data) => {
+    this.api.getTrendingCoins(this.currency).subscribe((data) => {
       this.bannerData = data;
     });
   }
 
   getAllData() {
-    this.api.getCurrency(this.currency).subscribe((data) => {
+    this.api.getCoinsData(this.currency).subscribe((data) => {
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

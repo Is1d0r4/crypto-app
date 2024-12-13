@@ -12,14 +12,10 @@
           <span class="value">{{ data?.market_cap_rank }}</span
           ><br />
           <span class="title">Current Price: </span>
-          <span class="value">{{
-            data?.market_data.current_price.inr | currency : currency
-          }}</span
+          <span class="value">{{ currentPrice | currency : currency }}</span
           ><br />
           <span class="title">Market Cap: </span>
-          <span class="value">{{
-            data?.market_data.market_cap.inr | currency : currency
-          }}</span>
+          <span class="value">{{ marketCap | currency : currency }}</span>
         </div>
       </div>
     </div>
