@@ -61,8 +61,8 @@ export class CoinDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getCoinData();
-    this.getGraphData(this.days);
+    this.loadCoinData();
+    this.loadGraphData(this.days);
     this.selectedCurrency$
       .pipe(combineLatestWith(this.data$))
       .subscribe(([selectedKey, data]) => {
@@ -70,18 +70,18 @@ export class CoinDetailComponent implements OnInit {
           data.market_data.current_price[selectedKey.toLowerCase()];
         this.marketCap = data.market_data.market_cap[selectedKey.toLowerCase()];
         this.currency = selectedKey;
-        this.getGraphData(this.days);
+        this.loadGraphData(this.days);
       });
   }
 
-  getCoinData() {
+  loadCoinData() {
     this.activedRoute.params.subscribe((params) => {
       this.coinId = params['id'];
       this.data$ = this.api.getCoinById(this.coinId);
     });
   }
 
-  getGraphData(days: number) {
+  loadGraphData(days: number) {
     this.days = days;
     this.api
       .getGrpahicalCoinData(this.coinId, this.currency, this.days)

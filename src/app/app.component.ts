@@ -1,42 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { CoinListComponent } from './components/coin-list/coin-list.component';
-import { ApiService } from './service/api.service';
-import { CurrencyService } from './service/currency.service';
+import { Component } from '@angular/core';
+import { NavBarComponent } from './components/navigation-bar/nav-bar/nav-bar.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    MatToolbarModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    CoinListComponent,
-  ],
+  imports: [NavBarComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  selectedCurrency: string = 'EUR';
-
-  constructor(private service: CurrencyService, private router: Router) {}
-
-  sendCurrency(event: string) {
-    this.service.setCurrency(event);
-  }
-
-  goToHome() {
-    this.router.navigate(['coin-list']);
-  }
-}
+export class AppComponent {}

@@ -16,7 +16,6 @@ import { CurrencyService } from '../../service/currency.service';
 })
 export class CoinListComponent implements OnInit {
   currency: string = 'EUR';
-  bannerData: any = [];
   displayedColumns: string[] = [
     'symbol',
     'current_price',
@@ -34,22 +33,14 @@ export class CoinListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getBannerData();
-    this.getAllData();
+    this.loadAllData();
     this.currencyService.getCurrency().subscribe((currency) => {
       this.currency = currency;
-      this.getBannerData();
-      this.getAllData();
+      this.loadAllData();
     });
   }
 
-  getBannerData() {
-    this.api.getTrendingCoins(this.currency).subscribe((data) => {
-      this.bannerData = data;
-    });
-  }
-
-  getAllData() {
+  loadAllData() {
     this.api.getCoinsData(this.currency).subscribe((data) => {
       this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;

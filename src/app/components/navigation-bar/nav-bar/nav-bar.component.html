@@ -1,0 +1,14 @@
+<mat-toolbar class="nav-bar">
+  <span (click)="goToHome()" class="logo">CRYPTO CHECKER</span>
+  <span class="example-spacer"></span>
+  <mat-form-field>
+    <mat-select
+      (valueChange)="sendCurrency($event)"
+      class="currency-select text-sm"
+      [(ngModel)]="selectedCurrency"
+    >
+      <mat-option value="EUR" selected>EUR</mat-option>
+      <mat-option value="USD">USD</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-toolbar>

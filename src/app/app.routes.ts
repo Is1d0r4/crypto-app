@@ -1,16 +1,16 @@
 import { Routes } from '@angular/router';
 import { CoinDetailComponent } from './components/coin-detail/coin-detail.component';
-import { CoinListComponent } from './components/coin-list/coin-list.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'coin-list',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: 'coin-list',
-    component: CoinListComponent,
+    path: 'home',
+    component: HomePageComponent,
   },
   {
     path: 'coin-detail/:id',
